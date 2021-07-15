@@ -49,6 +49,10 @@ export class RollController {
     return this.studentRollStateRepository.find({ roll_id: request.params.id })
   }
 
+  async getAllRoll(request: Request, response: Response, next: NextFunction) {
+    return this.studentRollStateRepository.find()
+  }
+
   async addStudentRollStates(request: Request, response: Response, next: NextFunction) {
     const { body: params } = request
     const studentRollStates: StudentRollState[] = map(params, (param) => {
